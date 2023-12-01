@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a non-negative integer n: ");
+        int n = scanner.nextInt();
+
+        printMultiplicationTable(n);
+    }
+
+    private static void printMultiplicationTable(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                int result = i * j;
+
+                // Check if the result is a perfect square
+                if (isPerfectSquare(result)) {
+                    System.out.print("x\t");
+                } else {
+                    System.out.print(result + "\t");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    private static boolean isPerfectSquare(int num) {
+        int sqrt = (int) Math.sqrt(num);
+        return sqrt * sqrt == num;
+    }
+}
+
+
+
+OutPut:
+Enter a non-negative integer n: 4
+x	2	3	x	
+2	x	6	8	
+3	6	x	12	
+x	8	12	x	
